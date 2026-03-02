@@ -1,0 +1,49 @@
+.header-text {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.table tbody {
+  display: block;
+  height: 65vh;
+  overflow: auto;
+}
+.table thead,
+tbody tr,
+tfoot tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed; /* even columns width , fix width of table too*/
+}
+.table tfoot {
+  display: table;
+  width: 100%;
+}
+
+.table {
+  /* margin: 1rem; */
+  border: 2px solid black;
+}
+
+.table-wrapper {
+  padding: 1rem;
+}
+.header-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.download {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+#myPlot {
+  align-items: center;
+  margin: auto;
+}

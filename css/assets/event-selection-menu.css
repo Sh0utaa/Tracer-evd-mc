@@ -1,0 +1,88 @@
+/*
+//////////////////////////////////////////////////////////////////////////////////
+///   Nuclear Engineering Center at Georgian Technical University
+///   TRACER Framework
+///////////////////////////////////////////////////////   Creation History
+///   Name:     event-selection-menu.css
+///   Subsystems: EVD
+///   Path: \tracer\subsystem\evd\r3.0\css\assets\event-selection-menu.css
+///   Description: Failshi agwerilia eventebis seleqciis fanjris stili
+///   Classes:
+        track-jet-info
+        track-jet-values
+        jet-info-table
+        track-info-table
+        MET-info-table
+        hits-info-table
+        cluster-info-table
+        cell-info-table
+        vertex-info-table
+        multiple-track-list
+        colStyle
+        deltaAngle
+        
+///   Author: <Nikoloz Udzilauri, Nino Zurashvili>                    
+///   Date: <თებერვალი 2021>
+///////////////////////////////////////////////////////   Change History
+///   Name: <პროგრამისტის სახელი>          
+///   Date:  <მოდიფიკაციის თარიღი>      
+///   Description: <მოდიფიკაციის აღწერა>
+//////////////////////////////////////////////////////////////////////////////////
+*/
+
+.track-jet-info {
+  display: none;
+  z-index: 1002;
+  position: fixed;
+  bottom: 30px;
+  border-radius: 0.25rem;
+}
+.track-jet-info .d-flex div {
+  white-space: nowrap;
+}
+.track-jet-info .track-jet-values {
+  color: var(--trc-tree-text-primary);
+}
+.jet-info-table,
+.track-info-table,
+.MET-info-table,
+.hits-info-table,
+.cluster-info-table,
+.cell-info-table,
+.vertex-info-table,
+.LAR-info-table {
+  display: none;
+  border-radius: 2px;
+  flex-direction: row;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  background-color: var(--trc-bg);
+  background-clip: padding-box;
+  box-shadow: 0 0 5px var(--trc-box-shoadow);
+  padding: 0.75rem 0.75rem;
+  padding-bottom: 0.8rem;
+}
+.multiple-track-list {
+  display: none;
+  border-radius: 2px;
+  max-height: 120px;
+
+  flex-direction: row;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-height: thin;
+  background-color: var(--trc-bg);
+  background-clip: padding-box;
+  box-shadow: 0 0 5px var(--trc-box-shoadow);
+  padding: 0.75rem 0.75rem;
+  padding-bottom: 0.8rem;
+  --bs-gutter-x: auto;
+  max-width: 620px;
+}
+.colStyle {
+  flex-grow: 0;
+  padding: 2px;
+}
+.deltaAngle {
+  max-width: 100px;
+}

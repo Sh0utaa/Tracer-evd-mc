@@ -1,0 +1,65 @@
+/*
+//////////////////////////////////////////////////////////////////////////////////
+///   Nuclear Engineering Center at Georgian Technical University
+///   TRACER Framework
+///////////////////////////////////////////////////////   Creation History
+///   Name:     about.css
+///   Subsystems: EVD, CORE
+///   Path: \tracer\subsystem\core\r4.0\css\assets\
+///   Path: \tracer\subsystem\evd\r4.0\css\assets\
+///   Description: Failshi agwerilia zeda funqciebis menius stili
+
+///   Author: <ნიკა უძილაური>                    
+///   Date: <თებერვალი 2021>
+///////////////////////////////////////////////////////   Change History
+///   Name: <პროგრამისტის სახელი>          
+///   Date:  <მოდიფიკაციის თარიღი>      
+///   Description: <მოდიფიკაციის აღწერა>
+//////////////////////////////////////////////////////////////////////////////////
+*/
+
+.about-menu {
+    display: none;
+    z-index: 1003;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: calc(100vh - 90px);
+    width: 400px;
+    background-color: var(--trc-bg);
+    background-clip: padding-box;
+    box-shadow: 0 0rem 0.35rem var(--trc-box-shoadow);
+    border-radius: 0.25rem;
+    scrollbar-width: thin;
+    overflow: auto;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.about-menu {
+    font-size: 12px;
+}
+.about-menu a {
+    color: var(--trc-text-active);
+}
+.about-menu table {
+    margin-bottom: 0.5rem;
+}
+.about-menu .table-sm > :not(caption) > * > * {
+    padding: 0.1rem;
+}
+.table-td-left {
+    text-align: left;
+    width: 50%;
+    white-space: nowrap;
+    color: var(--trc-text-primary);
+}
+.table-th-right {
+    text-align: right;
+    width: 50%;
+    white-space: nowrap;
+    font-weight: normal;
+    color: var(--trc-text-primary);
+}

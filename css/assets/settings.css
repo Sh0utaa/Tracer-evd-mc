@@ -1,0 +1,49 @@
+.settings-menu {
+    display: none;
+    z-index: 1003;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: calc(100vh - 90px);
+    width: 280px;
+    background-color: var(--trc-bg);
+    background-clip: padding-box;
+    box-shadow: 0 0rem 0.35rem var(--trc-box-shoadow);
+    border-radius: 0.25rem;
+    scrollbar-width: thin;
+    overflow: auto;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.settings-advanced-body,
+.settings-ui-body {
+    display: none;
+}
+.settings-range-val {
+    display: inline-block;
+}
+.pos-auto {
+    top: auto;
+    left: auto;
+    transform: none;
+}
+.settings-modal-content {
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+.settings-scene,
+.settings-advanced,
+.settings-ui {
+    cursor: pointer;
+}
+.settings-scene .feather,
+.settings-advanced .feather,
+.settings-ui .feather {
+    width: 18px;
+    height: 18px;
+}

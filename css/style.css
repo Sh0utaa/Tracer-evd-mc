@@ -1,0 +1,374 @@
+/*//////////////////////////////////////////////////////////////////////////////////
+///   Nuclear Engineering Center at Georgian Technical University
+///   TRACER Framework
+///////////////////////////////////////////////////////   Creation History
+///   Name:     style.css
+///   Subsystems: EVD
+///   Path: \tracer\subsystem\evd\r3.0\css\style.css
+///   Description: ui-s css
+///   Classes:
+        roboto
+        jura
+        coreContainer
+        axisContainer
+        triangleContainer
+        arrowSpeedIndicator
+        info
+        yel
+        trc-brand
+        trc-core-brand
+        trc-text-secondary
+        clr-value
+        trc-title
+        settings-menu 
+        trc-title
+        trc-menu-title
+        trc-menu-handle
+        trc-menu-header
+        trc-menu-body
+        trc-menu-body
+        feather
+        trc-menu-splitter
+        form-check-input
+        form-range
+        btn-primary
+        trc-stats
+        hidden
+        spacer
+        high-z-index
+        blockClick
+        geometry-cut-slider-outer
+        geometry-cut-margin
+        drone-zIndex
+///   Author: <Nikoloz Udzilauri, Nino Zurashvili, Irakli Kverenchkhiladze>                    
+///   Date: <მაისი 2021>
+///////////////////////////////////////////////////////   Change History
+///   Name: <პროგრამისტის სახელი>          
+///   Date:  <მოდიფიკაციის თარიღი>      
+///   Description: <მოდიფიკაციის აღწერა>
+//////////////////////////////////////////////////////////////////////////////////*/
+:root {
+  --trc-primary: #6ea8fe;
+  --trc-primary-dark: #0d6efd;
+  --trc-text-primary: #dfe6e9;
+  --trc-text-secondary: #8a8e92;
+  --trc-text-active: #9ec5fe;
+  --trc-text-value: #ea868f;
+  --trc-tree-text-primary: #9ec5fe;
+  --trc-tree-text-secondary: #ffe69c;
+  --trc-bg: #212529;
+  --trc-scene-bg: #000;
+  --trc-box-shoadow: rgb(0 0 0 / 30%); /*#212529*/
+  --trc-border: rgba(0, 0, 0, 0.2);
+  --trc-font-weight: 300;
+  --trc-font-size: 0.75rem;
+  --trc-tree-font-size: 0.75rem;
+  --trc-title-font-weight: 700;
+}
+.roboto {
+  --trc-font-family: "Roboto", sans-serif;
+  --trc-tree-text-primary-font-weight: 400;
+}
+.jura {
+  --trc-font-family: "Jura", sans-serif;
+  --trc-tree-text-primary-font-weight: 600;
+}
+/**/
+body {
+  overflow-y: hidden;
+  background-color: var(--trc-scene-bg);
+  font-family: var(--trc-font-family);
+  font-size: var(--trc-font-size);
+  font-weight: var(--trc-font-weight);
+  color: var(--trc-text-primary);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+}
+.coreContainer {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+}
+.axisContainer {
+  width: 100px;
+  height: 100px;
+  right: 5vw;
+  top: 10vh;
+  position: fixed;
+  z-index: -1;
+}
+.triangleContainer {
+  position: fixed;
+  min-height: 150px;
+  width: 150px;
+  bottom: 30px;
+  margin-left: -75px;
+  left: 50%;
+  z-index: 1;
+  display: none;
+}
+.arrowSpeedIndicator {
+  width: 150px;
+  min-height: 38px;
+  position: fixed;
+  bottom: 123px;
+  margin-left: -75px;
+  left: 50%;
+  z-index: 1;
+  font-size: 12px;
+  color: #00eb14;
+  text-align: center;
+  display: none;
+  font-weight: bold;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.info {
+  position: fixed;
+  right: 30px;
+  top: 80px;
+  color: white;
+  font-size: 14px;
+  display: none;
+  z-index: -1;
+}
+.yel {
+  color: yellow;
+}
+
+a {
+  color: var(--trc-text-primary);
+}
+a:focus {
+  outline: none;
+}
+a:hover {
+  color: #fff;
+}
+span {
+  vertical-align: middle;
+}
+/**/
+.trc-brand {
+  /* color: var(--trc-primary); */
+  margin-top: -2px;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  font-family: "Jura", sans-serif !important;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+}
+@media (max-width: 635px){
+  .trc-brand {
+    display: none;
+  }
+}
+.clr-title{
+  color: var(--trc-primary);
+}
+.trc-core-brand {
+  color: var(--trc-text-primary);
+  padding-left: 1px;
+}
+.trc-text-secondary {
+  color: var(--trc-text-secondary);
+}
+.clr-value {
+  color: var(--trc-text-active);
+}
+.trc-title {
+  color: var(--trc-text-primary);
+  /* border-bottom: 1px solid var(--trc-text-primary); */
+  font-weight: 400;
+}
+.settings-menu .trc-title {
+  text-transform: uppercase;
+}
+.trc-menu-title {
+  margin-bottom: 0;
+  line-height: 1rem;
+  font-weight: var(--trc-title-font-weight);
+  font-size: 0.875rem;
+  color: var(--trc-text-primary);
+  font-family: "Jura", sans-serif;
+  text-transform: uppercase;
+}
+/**/
+.trc-menu-handle {
+  cursor: move;
+}
+.trc-menu-header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--trc-border);
+  padding: 0.7rem 0.75rem;
+}
+.trc-menu-body {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.trc-menu-body .feather {
+  width: 19px;
+  height: 19px;
+  transition: all 0.1s ease;
+}
+.trc-menu-splitter {
+  border-bottom: 1px solid var(--trc-border);
+}
+/**/
+.form-check-input:checked {
+  background-color: var(--trc-primary-dark);
+  border-color: var(--trc-primary-dark);
+}
+
+.form-range::-webkit-slider-thumb {
+  background: var(--trc-primary-dark);
+}
+.form-range::-moz-range-thumb {
+  background: var(--trc-primary-dark);
+}
+.form-range::-ms-thumb {
+  background: var(--trc-primary-dark);
+}
+.btn-primary {
+  color: #fff;
+  background-color: var(--trc-primary-dark);
+  border-color: var(--trc-primary-dark);
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: var(--trc-primary-dark);
+  border-color: var(--trc-primary-dark);
+}
+.btn-primary-outline {
+  color: var(--trc-primary);
+  border-color: var(--trc-primary);
+}
+.btn-primary-outline:hover {
+  color: var(--trc-primary);
+  border-color: var(--trc-primary);
+}
+/**/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #151618;
+}
+::-webkit-scrollbar-thumb {
+  background: #717172;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5d5d5e;
+}
+
+/**/
+#axis {
+  width: 100px;
+  height: 100px;
+  right: 30px;
+  bottom: 20px;
+  position: absolute;
+  z-index: 1;
+}
+/**/
+.trc-stats {
+  position: fixed;
+  display: flex;
+  bottom: 8px;
+  right: 10px;
+  text-transform: uppercase;
+}
+/**/
+.hidden {
+  display: none;
+}
+.spacer {
+  opacity: 0;
+  padding: 4px;
+}
+.high-z-index {
+  z-index: 1004 !important;
+}
+@media (max-width: 575.98px) {
+  .event-menu,
+  .settings-menu,
+  .about-menu {
+    border-radius: 0 !important;
+    max-height: calc(100vh - 20px) !important;
+  }
+}
+
+.blockClick {
+  pointer-events: none;
+}
+
+.geometry-cut-slider-outer {
+  position: fixed;
+  width: 100%;
+}
+
+#geometry-cut-slider {
+  display: table;
+  margin: 0 auto;
+}
+.geometry-cut-margin {
+  margin-top: 70px !important;
+}
+
+.drone-zIndex {
+  z-index: 1005;
+}
+.tracer-logo {
+  background-image: url("./assets/img/Tracer-Logo.png");
+  width: 82px;
+  height: 53px;
+  background-position: center;
+  background-size: cover;
+  margin: 15px;
+  position: absolute;
+  left: 2px;
+  bottom: 1px;
+}
+
+#eventIdWarning {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the div */
+  width: 320px;
+  height: 110px;
+  background: #212529;
+  z-index: 1600; /* Higher than overlay */
+  display: none; /* Initially hidden */
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  text-align: center;
+  font-size: medium;
+  font-weight: 400;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+  display: none; 
+  z-index: 1500; 
+  pointer-events: none;
+}

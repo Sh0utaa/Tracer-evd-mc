@@ -1,0 +1,1401 @@
+<!-- //////////////////////////////////////////////////////////////////////////////////
+///   Nuclear Engineering Center at Georgian Technical University
+///   TRACER Framework
+///////////////////////////////////////////////////////   Creation History
+///   Name:     index.html
+///   Subsystems: EVD
+///   Path: \tracer\subsystem\evd\r3.0\index.html
+///   Description: evd-shi arsebuli ui funqcionalebi
+
+///   Author: <Nikoloz Udzilauri, Nino Zurashvili, Irakli Kverenchkhiladze>                    
+///   Date: <მაისი 2021>
+///////////////////////////////////////////////////////   Change History
+///   Name: <პროგრამისტის სახელი>          
+///   Date:  <მოდიფიკაციის თარიღი>      
+///   Description: <მოდიფიკაციის აღწერა>
+////////////////////////////////////////////////////////////////////////////////// -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tracer EVD</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+   
+    <!--  -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/assets/top-cp.css">
+    <link rel="stylesheet" href="./css/assets/error-warning-menu.css">
+    <link rel="stylesheet" href="./css/assets/event-menu.css">
+    <link rel="stylesheet" href="./css/assets/geometry-tree.css">
+    <link rel="stylesheet" href="./css/assets/about.css">
+    <link rel="stylesheet" href="./css/assets/settings.css">
+    <link rel="stylesheet" href="./css/assets/icon-animations.css">
+    <link rel="stylesheet" href="./css/assets/event-selection-menu.css">
+    <link rel="stylesheet" href="./css/assets/progress-bar.css">
+    <link rel="stylesheet" href="./css/assets/evd-mc.css">
+
+    <!-- R E S O U R C E S -->
+    <script src="./resources/jquery/jquery-3.5.1.min.js"></script>
+    <script src="./resources/jquery/jquery-ui.js"></script>
+    <script src="./resources/jquery/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <!-- <script src="https://unpkg.com/feather-icons"></script> -->
+    <script src="./resources/filesaver/FileSaver.js"></script>
+    <script src="./resources/math/algebra-0.2.6.min.js"></script>
+    <script src="./resources/math/math.min.js"></script>
+    <script src="./resources/threejs/three.js"></script>
+    <script src="./resources/threejs/GLTFLoader.js"></script>
+    <script src="./resources/threejs/modified_OrbitControls.js"></script>
+    <script src="./resources/threejs/modified_FlyControls.js"></script>
+    <!-- E F F E C T S -->
+    <script src="./resources/threejs/AfterimageShader.js"></script>
+    <script src="./resources/threejs/Pass.js"></script>
+    <script src="./resources/threejs/CopyShader.js"></script>
+    <script src="./resources/threejs/ShaderPass.js"></script>
+    <script src="./resources/threejs/MaskPass.js"></script>
+    <script src="./resources/threejs/LuminosityHighPassShader.js"></script>
+    <script src="./resources/threejs/RenderPass.js"></script>
+    <script src="./resources/threejs/EffectComposer.js"></script>
+    <script src="./resources/threejs/AfterimagePass.js"></script>
+    <script src="./resources/threejs/UnrealBloomPass.js"></script>
+    <script src="./resources/threejs/FXAAShader.js"></script>
+    <script src="./resources/threejs/OutlinePass.js"></script>
+
+    <!-- Tracer L I B R A R Y -->
+    <script src="./resources/tracerLib/tracer.js" defer></script>
+
+    <!-- A L G O R I T H M -->
+    <script src="./js/shader.js" defer></script>
+    <script src="./js/snap.js" defer></script>
+    <script src="./js/drone.js" defer></script>
+    <script src="./js/functions.js" defer></script>
+    <script src="./js/particleAnimation.js" defer></script>
+    <script src="./js/main.js" defer></script>
+    <script src="./js/events/eventDisplay.js" defer></script>
+    <script src="./js/events/LAr.js" defer></script>
+    <script src="./js/events/MuonSegments.js" defer></script>
+    <script src="./js/axis.js" defer></script>
+  
+
+    <script src="./js/events/prepareMcParams.js" defer></script>
+    <script src="./js/ui/geometry-tree.js" defer></script>
+
+    <script src="./js/ui/ui.js" defer></script>
+    <!-- <script src="./js/mc-table.js" defer></script> -->
+
+    <script src="./js/ui/icon-animations.js" defer></script>
+
+</head>
+<!-----B O D Y----->
+
+<body id="body" class="roboto">
+    <!-----ERROR/WARNING  M E N U----->
+    <div class="error-warning-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex flex-column g-0">
+                    <div class="error-menu-header trc-menu-handle">
+                        <div class="trc-menu-title error-warning-title align-content-center">
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-octagon"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg> -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-alert-triangle">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                </path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg><span class="align-middle error-warning-header px-1"></span>
+                        </div>
+                        <!-- <button type="button" class="btn-close btn-close-white error-warning-menu-close-btn"></button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row error-menu-body">
+                <div class="col-12 d-flex flex-column error-warning-menu-top justify-content-between">
+                    <span class="error-warning-message"></span>
+                </div>
+                <div class="prld-Msg1 justify-content-between col-12 error-warning-d-flex error-menu-rem">
+                    <button type="button" class="btn btn-outline-primary btn-sm" id="prld-a">Accept</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm" id="prld-d">Decline</button>
+                </div>
+                <div class="prld-Msg2 justify-content-between col-12 error-warning-d-flex2 error-menu-rem">
+                    <button type="button" class="btn btn-outline-primary btn-sm" id="prld-ok">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----A B O U T  M O D A L----->
+    <div id="draggable4" class="trc-menu about-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 g-0">
+                    <div class="trc-menu-header trc-menu-handle" id="about-menu-handle">
+                        <div class="trc-menu-title"><span class="align-middle">ABOUT</span></div>
+                        <button type="button" class="btn-close btn-close-white about-menu-close-btn"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex flex-column trc-menu-body">
+                <div class="col-12 d-flex flex-column align-items-center py-1">
+                    <div class="pt-1 pb-2 text">Tracer Evd r2.0 <span class="">/ March 2021</span></div>
+                    <div class=""><img class="me-1" width="30px" height="30px" src="./css/assets/img/gtu-logo.png" /><a
+                            class="text-uppercase" href="https://gtu.ge/Eng/" target="_blank">Georgian Technical
+                            University</a></div>
+                    <div class="pb-2"><img class="me-1" width="30px" height="30px"
+                            src="./css/assets/img/nec-logo.png" /><a class="text-uppercase" href="http://www.cadcam.ge"
+                            target="_blank">Nuclear Engineering Center</a></div>
+                    <div class="col-12 d-flex justify-content-center pb-2"><span class="trc-title">CONTRIBUTORS</span>
+                    </div>
+                    <table class="table table-borderless table-sm">
+                        <tbody>
+                            <tr>
+                                <th class="table-th-right" scope="row">Aleksander Sharmazanashvili</th>
+                                <td class="table-td-left"> - Concept creator & Project Manager</td>
+                            </tr>
+                            <tr>
+                                <th class="table-th-right" scope="row">Shota Tevdorashvili</th>
+                                <td class="table-td-left"> - Lead software developer</td>
+                            </tr>
+                            <tr>
+                                <th class="table-th-right" scope="row">Shota Chlaidze</th>
+                                <td class="table-td-left"> - Lead software developer</td>
+                            </tr>
+                            <tr>
+                                <th class="table-th-right" scope="row">Nino Zurashvili</th>
+                                <td class="table-td-left"> - Programmer</td>
+                            </tr>
+                            <tr>
+                                <th class="table-th-right" scope="row">Pedro Abreu</th>
+                                <td class="table-td-left"> - Project consultant</td>
+                            </tr>
+                            <tr>
+                                <th class="table-th-right" scope="row">Farid Ould-Saada</th>
+                                <td class="table-td-left"> - Project consultant</td>
+                            </tr>
+                            <tr>
+                                <th class="table-th-right" scope="row">Erik Gramstad</th>
+                                <td class="table-td-left"> - Project consultant</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <div class="col-12 d-flex justify-content-center pb-2"><span class="trc-title ">BASED ON THE TRACER CORE 7.0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----T O P  C O N T R O L  P A N E L----->
+    <div class="col-12 control-panel cp-top d-flex justify-content-center align-items-center">
+        <!-- Main Group -->
+        <div class="d-flex align-items-center main-group">
+            
+            <div class="trc-brand">       
+                <span class="clr-title">T</span>
+                <span class="trc-core-brand">EVD</span>
+            </div>
+            <div class="trc-brand">
+                <span id="mc-problem" class="clr-title">W</span><span
+                    class="trc-core-brand trc-mc-path">path</span></div>
+            <button type="button" class="menu-btn active" title="Geometry Tree">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <button type="button" class="event-menu-btn active" title="Event Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="feather">
+                    <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10">
+                        <path
+                            d="M12.2 12.6c0-1.7 8-10.4 9.6-10.4M12.2 12.6c0-.7 6.5-8.3 7.1-8.3M12.2 12.6c0-.6 8.1-6.6 8.9-6.6M12.2 12.6s8.9-.5 9.8-.5M12.2 12.6c0 .8 7.5 9.6 8.3 9.6M12.2 12.5c0 .8.8 9.2.9 9.2M12.2 12.4c0 .7-7 7.5-7.7 7.5M12.2 12.4c0 .4-8.8 4.3-9.7 4.3M12.2 12.4c0 .1-9 .7-9.8.7M12.2 12.4c0-.3-9.3-3.5-10.2-3.5M12.2 12.4c0-.8-8.6-9.5-9.4-9.5M12.2 12.4c0-.5-2.9-6.2-3.2-6.2M12.2 12.4c0-.6-.1-7.2-.1-7.2M12.1 12.4c0-.9 4-10.3 4.3-10.3" />
+                    </g>
+                </svg>
+            </button>
+            <!-- D R O N E -->
+            <button type="button" class="tracer-dropdown-btn drone-btn" title="Drone Modes">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="drone-icon feather">
+                    <g class="drone-wings" fill="none" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10">
+                        <circle cx="6" cy="6" r="4" />
+                        <circle cx="18" cy="18" r="4" />
+                        <circle cx="18" cy="6" r="4" />
+                        <circle cx="6" cy="18" r="4" />
+                    </g>
+                    <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-miterlimit="10"
+                        d="M13 14h-2c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1h2c.6 0 1 .4 1 1v2c0 .6-.4 1-1 1z" />
+                    <circle fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" cx="12"
+                        cy="12" r="1.5" />
+                    <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-miterlimit="10">
+                        <path d="M10 10L6 6M14 10l4-4M10 14l-4 4M14 14l4 4" />
+                    </g>
+                </svg>
+                <div class="dropdown py-1 justify-content-center align-items-center hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        class="feather navigate-icon drone-zIndex">
+                        <polygon points="12 2 19 21 12 17 5 21 12 2"></polygon>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        class="feather circle-icon drone-zIndex">
+                        <path d="M22 11.1v.9c0 5.5-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2c1.4 0 2.8.3 4.1.9" />
+                        <path d="M17.9 1.6l1.9 3.1-3.7.6 1.8-3.7z" />
+                        <circle cx="12" cy="12" r="1.5" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="feather helix-icon drone-zIndex">
+                        <g>
+                            <path
+                                d="M19.4 6.3c-4.1-4.1-10.8-4.1-14.9 0C1 9.8 1 15.4 4.5 18.9c3 3 7.8 3 10.8 0 2.5-2.5 2.5-6.6 0-9.2-2.2-2.2-5.6-2.2-7.8 0-1.8 1.8-1.8 4.8 0 6.6" />
+                            <path d="M21.4 5.2l.8 3.7-3.9-.7c.1 0 3.1-3 3.1-3z" />
+                            <circle cx="10.9" cy="13.7" r="1.6" />
+                        </g>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        class="feather dollyZoom-icon drone-zIndex">
+                        <path class="dollyZoom-svg-path"
+                            d="M15 3h6v6M9 21H3v-6M21 3l-5 5M3 21l5-5M3 9V3h6M21 15v6h-6M3 3l5 5M21 21l-5-5" />
+                        <circle cx="12" cy="12" r="1.5" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        class="feather rocket-icon drone-zIndex">
+                        <g>
+                            <path class="rocket-svg-path"
+                                d="M12.3 1.1c-.1-.1-.4-.1-.5 0-.8.5-1.3 1.1-1.9 1.6-2.2 2.1-2.3 4.6-1.8 7.1L5.9 12c-.3.3-.5 1-.3 1.5l1 3.1c0 .1.1.2.2.3.3.3.7.3 1 0l2-2 .2.7c0 .5.4.9.9.9H13c.5 0 .9-.4.9-.9l.2-.8 1.9 2c.3.3.7.3 1 0 .1-.1.1-.2.2-.3l1-3.1c.2-.5 0-1.1-.3-1.5l-2.2-2.2c.6-2.5.4-5-1.7-7.1-.4-.5-.9-1-1.7-1.5zm.5 5.6c-.5.5-1.2.5-1.7 0s-.5-1.2 0-1.7 1.2-.5 1.7 0 .5 1.3 0 1.7zM8.1 9.8l2.1 6.3M15.9 9.8l-2.1 6.3" />
+                            <circle cx="12" cy="21" r="1.5" />
+                        </g>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-film animation-icon">
+                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                        <line x1="7" y1="2" x2="7" y2="22"></line>
+                        <line x1="17" y1="2" x2="17" y2="22"></line>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <line x1="2" y1="7" x2="7" y2="7"></line>
+                        <line x1="2" y1="17" x2="7" y2="17"></line>
+                        <line x1="17" y1="17" x2="22" y2="17"></line>
+                        <line x1="17" y1="7" x2="22" y2="7"></line>
+                    </svg>
+                </div>
+            </button>
+            <button type="button" class="tracer-dropdown-btn view-btn active" title="Camera Views">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="feather active-view-icon">
+                    <g class="iso-g">
+                        <path
+                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                        </path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </g>
+                    <g class="front-g">
+                        <path fill="currentColor"
+                            d="M12 12v10c-.3 0-.7-.1-1-.3l-7-4c-.6-.4-1-1-1-1.7V8c0-.4.1-.7.3-1l8.7 5z" />
+                        <path
+                            d="M12 22c.3 0 .7-.1 1-.3l7-4c.6-.4 1-1 1-1.7V8c0-.4-.1-.7-.3-1-.2-.3-.4-.5-.7-.7l-7-4c-.6-.4-1.4-.4-2 0l-7 4c-.3.1-.5.4-.7.7-.2.3-.3.6-.3 1v8c0 .7.4 1.4 1 1.7l7 4c.3.2.7.3 1 .3z" />
+                        <path d="M3.3 7h0l8.7 5 8.7-5h0M12 22.1V12h0" />
+                    </g>
+                    <g class="left-g">
+                        <path fill="currentColor"
+                            d="M13 21.7c-.3.2-.7.3-1 .3V12l8.7-5c.2.3.3.6.3 1v8c0 .7-.4 1.3-1 1.7l-7 4z" />
+                        <path
+                            d="M12 22c.3 0 .7-.1 1-.3l7-4c.6-.4 1-1 1-1.7V8c0-.4-.1-.7-.3-1-.2-.3-.4-.5-.7-.7l-7-4c-.6-.4-1.4-.4-2 0l-7 4c-.3.1-.5.4-.7.7S3 7.6 3 8v8c0 .7.4 1.4 1 1.7l7 4c.3.2.7.3 1 .3z" />
+                        <path d="M3.3 7l8.7 5 8.7-5M12 22.1V12" />
+                    </g>
+                </svg>
+                <div class="dropdown py-1 justify-content-center align-items-center hidden">
+                    <svg id="iso-view-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        class="feather view-icon iso-view-btn iso-view-icon feather-box active">
+                        <g>
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </g>
+                    </svg>
+                    <svg id="front-view-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        class="feather view-icon front-view-btn front-view-icon view-icon">
+                        <g>
+                            <path fill="currentColor"
+                                d="M12 12v10c-.3 0-.7-.1-1-.3l-7-4c-.6-.4-1-1-1-1.7V8c0-.4.1-.7.3-1l8.7 5z" />
+                            <path
+                                d="M12 22c.3 0 .7-.1 1-.3l7-4c.6-.4 1-1 1-1.7V8c0-.4-.1-.7-.3-1-.2-.3-.4-.5-.7-.7l-7-4c-.6-.4-1.4-.4-2 0l-7 4c-.3.1-.5.4-.7.7-.2.3-.3.6-.3 1v8c0 .7.4 1.4 1 1.7l7 4c.3.2.7.3 1 .3z" />
+                            <path d="M3.3 7h0l8.7 5 8.7-5h0M12 22.1V12h0" />
+                        </g>
+                    </svg>
+                    <svg id="left-view-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        class="feather view-icon left-view-btn left-view-icon view-icon">
+                        <g>
+                            <path fill="currentColor"
+                                d="M13 21.7c-.3.2-.7.3-1 .3V12l8.7-5c.2.3.3.6.3 1v8c0 .7-.4 1.3-1 1.7l-7 4z" />
+                            <path
+                                d="M12 22c.3 0 .7-.1 1-.3l7-4c.6-.4 1-1 1-1.7V8c0-.4-.1-.7-.3-1-.2-.3-.4-.5-.7-.7l-7-4c-.6-.4-1.4-.4-2 0l-7 4c-.3.1-.5.4-.7.7S3 7.6 3 8v8c0 .7.4 1.4 1 1.7l7 4c.3.2.7.3 1 .3z" />
+                            <path d="M3.3 7l8.7 5 8.7-5M12 22.1V12" />
+                        </g>
+                    </svg>
+                </div>
+            </button>
+            <!--C U T S-->
+            <button type="button" class="tracer-dropdown-btn cut-btn active" title="Geometry Cuts">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="feather active-cut-icon">
+                    <g class="cut-g no-cut-g">
+                        <path
+                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                        </path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </g>
+                    <g class="cut-g cut-1-g">
+                        <path
+                            d="M4.5 15.2c0 .6.4 1.2.9 1.5l8.3 4.7c.5.3 1.3.3 1.7 0l3.3-1.9c.5-.3.9-.9.9-1.5V8.7c0-.6-.4-1.2-.9-1.5l-8.3-4.7c-.5-.3-1.3-.3-1.7 0L5.4 4.3c-.5.3-.9 1-.9 1.5v9.4z" />
+                        <path d="M4.8 5l9.7 5.5h0l4.7-2.7M14.5 21.7V10.5" />
+                    </g>
+                    <g class="cut-g cut-2-g">
+                        <path
+                            d="M19.5 15.2c0 .6-.4 1.2-.9 1.5l-8.3 4.7c-.5.3-1.3.3-1.7 0l-3.3-1.9c-.5-.3-.9-.9-.9-1.5V8.7c0-.6.4-1.2.9-1.5l8.3-4.7c.5-.3 1.3-.3 1.7 0l3.3 1.9c.5.3.9.9.9 1.5v9.3z" />
+                        <path d="M19.2 5l-9.7 5.5h0L4.8 7.8" />
+                        <path d="M9.5 21.7V10.5" />
+                    </g>
+                    <g class="cut-g cut-3-g">
+                        <path
+                            d="M3.9 17.5c-.5-.3-.9-.9-.9-1.5V8c0-.5.4-1.2.9-1.5l7.2-4c.5-.3 1.3-.3 1.7 0L15.6 4c.5.3.9.9.9 1.5v3c0 .6.4 1.2.9 1.5l2.8 1.5c.5.3.9.9.9 1.5v3c0 .6-.4 1.2-.9 1.5l-7.2 4c-.5.3-1.3.3-1.7 0l-7.4-4z" />
+                        <path d="M12 21.4v-4.2M12 17l8.7-4.8" />
+                        <path d="M12 17l-4.5-2.5M7.5 14.5l9-5M7.5 14.3V9.5" />
+                        <path d="M7.2 9.2l-4-2.1M16.2 4.6L7.4 9.4" />
+                    </g>
+                    <g class="cut-g cut-4-g">
+                        <path
+                            d="M3.9 17.5c-.5-.3-.9-1-.9-1.5V8c0-.6.4-1.2.9-1.5l7.2-4c.5-.3 1.3-.3 1.7 0l7.3 4c.5.3.9 1 .9 1.5v8c0 .5-.4 1.2-.9 1.5l-7.3 4c-.5.3-1.3.3-1.7 0l-7.2-4z" />
+                        <path d="M7.5 9.5v4c0 .6.4 1.2.9 1.5l2.8 1.5c.5.3 1.3.3 1.7 0l2.7-1.5c.5-.3.9-.9.9-1.5v-4" />
+                        <path d="M12 21.8V17" />
+                        <path d="M7.5 9.5l3.6-2c.5-.3 1.3-.3 1.7 0l3.6 2" />
+                        <path stroke-miterlimit="10"
+                            d="M3.5 7.2l4 2.3M20.7 7.2l-4.2 2.3M12 7.3V12M7.7 14.4L12 12M12 12l4.3 2.4" />
+                    </g>
+                </svg>
+                <div class="dropdown py-1 justify-content-center align-items-center hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-miterlimit="10"
+                        class="cut-1-btn cut-1-icon feather">
+                        <g>
+                            <path
+                                d="M4.5 15.2c0 .6.4 1.2.9 1.5l8.3 4.7c.5.3 1.3.3 1.7 0l3.3-1.9c.5-.3.9-.9.9-1.5V8.7c0-.6-.4-1.2-.9-1.5l-8.3-4.7c-.5-.3-1.3-.3-1.7 0L5.4 4.3c-.5.3-.9 1-.9 1.5v9.4z" />
+                            <path d="M4.8 5l9.7 5.5h0l4.7-2.7M14.5 21.7V10.5" />
+                        </g>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-miterlimit="10"
+                        class="cut-2-btn cut-2-icon feather">
+                        <g>
+                            <path
+                                d="M19.5 15.2c0 .6-.4 1.2-.9 1.5l-8.3 4.7c-.5.3-1.3.3-1.7 0l-3.3-1.9c-.5-.3-.9-.9-.9-1.5V8.7c0-.6.4-1.2.9-1.5l8.3-4.7c.5-.3 1.3-.3 1.7 0l3.3 1.9c.5.3.9.9.9 1.5v9.3z" />
+                            <path d="M19.2 5l-9.7 5.5h0L4.8 7.8" />
+                            <path d="M9.5 21.7V10.5" />
+                        </g>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-miterlimit="10"
+                        class="cut-3-btn cut-3-icon active feather">
+                        <g>
+                            <path
+                                d="M3.9 17.5c-.5-.3-.9-.9-.9-1.5V8c0-.5.4-1.2.9-1.5l7.2-4c.5-.3 1.3-.3 1.7 0L15.6 4c.5.3.9.9.9 1.5v3c0 .6.4 1.2.9 1.5l2.8 1.5c.5.3.9.9.9 1.5v3c0 .6-.4 1.2-.9 1.5l-7.2 4c-.5.3-1.3.3-1.7 0l-7.4-4z" />
+                            <path d="M12 21.4v-4.2M12 17l8.7-4.8" />
+                            <path d="M12 17l-4.5-2.5M7.5 14.5l9-5M7.5 14.3V9.5" />
+                            <path d="M7.2 9.2l-4-2.1M16.2 4.6L7.4 9.4" />
+                        </g>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-miterlimit="10"
+                        class="cut-4-btn cut-4-icon feather">
+                        <g>
+                            <path
+                                d="M3.9 17.5c-.5-.3-.9-1-.9-1.5V8c0-.6.4-1.2.9-1.5l7.2-4c.5-.3 1.3-.3 1.7 0l7.3 4c.5.3.9 1 .9 1.5v8c0 .5-.4 1.2-.9 1.5l-7.3 4c-.5.3-1.3.3-1.7 0l-7.2-4z" />
+                            <path
+                                d="M7.5 9.5v4c0 .6.4 1.2.9 1.5l2.8 1.5c.5.3 1.3.3 1.7 0l2.7-1.5c.5-.3.9-.9.9-1.5v-4" />
+                            <path d="M12 21.8V17" />
+                            <path d="M7.5 9.5l3.6-2c.5-.3 1.3-.3 1.7 0l3.6 2" />
+                            <path stroke-miterlimit="10"
+                                d="M3.5 7.2l4 2.3M20.7 7.2l-4.2 2.3M12 7.3V12M7.7 14.4L12 12M12 12l4.3 2.4" />
+                        </g>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="cut-slider-icon"
+                        class="feather feather-droplet" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="6" cy="6" r="3"></circle>
+                        <circle cx="6" cy="18" r="3"></circle>
+                        <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                        <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                        <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                    </svg>
+                </div>
+            </button>
+
+            <!-- opacity slider  -->
+            <button type="button" class="tracer-dropdown-btn opacity-btn active" title="Geometry Opacity">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="feather feather-droplet">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                </svg>
+                <div class="dropdown opacity-dropdown py-1 justify-content-center align-items-center hidden">
+                    <form class="opacity-form">
+                        <input type="range" min="1.1" step="0.1" value="7" max="100"
+                            class="form-control-range align-middle" id="opacity-slider" draggable="false"
+                            autocomplete="off" ondragstart="dragStart(e)">
+                    </form>
+                </div>
+            </button>
+
+            <button type="button" class="wirefram-btn" id="wireframe-btn" title="Wireframe">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="feather">
+                    <path
+                        d="M5 3h14c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2zM3.6 3.6l16.9 16.7M3.6 20.4L20.4 3.6" />
+                </svg>
+            </button>
+            <button type="button" class="settings-btn" title="Settings">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="feather feather-sliders">
+                    <line x1="4" y1="21" x2="4" y2="14"></line>
+                    <line x1="4" y1="10" x2="4" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12" y2="3"></line>
+                    <line x1="20" y1="21" x2="20" y2="16"></line>
+                    <line x1="20" y1="12" x2="20" y2="3"></line>
+                    <line x1="1" y1="14" x2="7" y2="14"></line>
+                    <line x1="9" y1="8" x2="15" y2="8"></line>
+                    <line x1="17" y1="16" x2="23" y2="16"></line>
+                </svg>
+            </button>
+            <!-- <button type="button" class="screenshot-btn" title="Screenshot">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-image">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+            </button> -->
+            <button type="button" class="about-btn" title="About">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="feather feather-info">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+            </button>
+            <!-- <a class="home-btn" href="../index.php" title="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="feather feather-home">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a> -->
+            <button type="button" class="fullScreen-btn" title="Fullscreen">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize">
+                    <path
+                        d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
+                    </path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minimize">
+                    <path
+                        d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3">
+                    </path>
+                </svg>
+            </button>
+            <button onclick="submitResult()" type="submit" form="ww_form"   title="Submit results!">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-exit">
+                    <path d="M10 3H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6" />
+                    <path d="M17 16l4-4-4-4" />
+                    <path d="M21 12H10" />
+                </svg>
+            </button>
+            <div class="spacer"></div>
+        </div>
+    </div>
+    <!-----E V E N T  M E N U----->
+    <div class="event-menu trc-menu" id="draggable3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 g-0">
+                    <div class="trc-menu-header trc-menu-handle" id="event-menu-handle">
+                        <div class="trc-menu-title align-content-center"><span class="align-middle">EVENTS</span></div>
+                        <button type="button" class="btn-close btn-close-white event-menu-close-btn"></button>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row trc-menu-body"> 
+          <div class="col-12 d-flex event-menu-top justify-content-between">
+            <button type="button" id="uploadXMLAlt" class="btn upload-xml-btn" onclick="document.getElementById('uploadXML').click();"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><input type="file" id="uploadXML" style="display: none;" name="xml"></button>
+            <button type="button" id="prev-evt-btn" class="btn prev-event-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button>
+            <button type="button" class="btn d-flex justify-content-center align-items-center selected-event" href="#"><span class="selected-event-title">group E 05/50</span></button>
+            <button type="button" id="next-evt-btn" class="btn next-event-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+            <button type="button" class="btn event-folder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg></button>
+          </div>
+        </div>
+        <div class="row event-menu-load-top-splitter hidden">
+          <div class="col-12">
+            <div class="trc-menu-splitter pt-1"></div>
+          </div>
+        </div> -->
+        <div class="col-12 d-flex event-menu-top justify-content-between">
+            <button type="button" id="uploadXMLAlt" class="btn upload-xml-btn" onclick="document.getElementById('uploadXML').click();"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><input type="file" id="uploadXML" style="display: none;" name="xml">  Upload XML</button>
+        </div> 
+        <div class="row event-menu-load trc-menu-body">
+                <div class="col-12 align-items-center justify-content-between">
+                    <form class="row gx-1 d-flex justify-content-center">
+                        <div class="col-auto flex-fill">
+                            <select id="archive" class="form-select form-select-sm" aria-label=""></select>
+                        </div>
+                        <div class="col-auto flex-fill">
+                            <select id="XMLFiles" class="form-select form-select-sm" aria-label=""></select>
+                        </div>
+                        <div class="col-auto flex-fill">
+                            <button type="button" id="load-event-btn" class="btn btn-sm btn-primary">LOAD</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="row">
+          <div class="col-12">
+            <div class="trc-menu-splitter pt-1"></div>
+          </div>
+        </div> -->
+            <div class="row trc-menu-body">
+                <div class="col-12 event-menu-middle d-flex align-items-center justify-content-start">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-check-inline form-switch">
+                                <input class="form-check-input event-form-check" type="checkbox" value="" id="track-btn"
+                                    checked>
+                                <label class="form-check-label" for="track-btn">Tracks</label>
+                            </div>
+                            <div class="form-check-inline form-switch">
+                                <input class="form-check-input event-form-check" type="checkbox" value="" id="jet-btn" checked>
+                                <label class="form-check-label" for="jet-btn">Jets</label>
+                            </div>
+                            <div class="form-check-inline form-switch">
+                                <input class="form-check-input event-form-check" type="checkbox" value="" id="met-btn"
+                                    checked>
+                                <label class="form-check-label" for="met-btn">Met</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-check-inline form-switch">
+                                <input class="form-check-input event-form-check" type="checkbox" value="" id="cell-check" checked>
+                                <label class="form-check-label" for="cell-check">Cells</label>
+                            </div>
+                            <div class="form-check-inline form-switch">
+                                <input class="form-check-input event-form-check" type="checkbox" value=""
+                                    id="vertices-check" checked>
+                                <label class="form-check-label" for="vertices-check">Vertices</label>
+                            </div>
+                            <div class="form-check-inline form-switch">
+                                <input class="form-check-input event-form-check" type="checkbox" value=""
+                                    id="LAr-check" checked>
+                                <label class="form-check-label" for="LAr-check">LAR</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-check-inline form-switch muon-segment-check-div">
+                                <input class="form-check-input event-form-check" type="checkbox" value="" id="muon-segment-check" checked>
+                                <label class="form-check-label" for="muon-segment-check">Muon Segments</label>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="trc-menu-splitter pt-1"></div>
+                </div>
+            </div>
+            <div class="row trc-menu-body">
+                <div class="col-12 event-menu-bottom">
+                    <nav class="w-100">
+                        <div class="nav nav-tabs d-flex justify-content-start mb-2" id="nav-tabs" role="tablist">
+                            <a class="d-flex align-items-center justify-content-evenly nav-link" id="nav-filter-tab"
+                                data-bs-toggle="tab" href="#nav-filter" role="tab" aria-controls="nav-filter"
+                                aria-selected="false"><span>Filter</span></a>
+                            <a class="d-flex align-items-center justify-content-evenly nav-link "
+                                id="nav-algorithms-tab" data-bs-toggle="tab" href="#nav-algorithms" role="tab"
+                                aria-controls="nav-algorithms" aria-selected="false"><span>Algorithms</span></a>
+                            <a class="d-flex align-items-center justify-content-evenly nav-link active"
+                                id="nav-info-tab" data-bs-toggle="tab" href="#nav-info" role="tab"
+                                aria-controls="nav-info" aria-selected="true"><span>Info</span></a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade" id="nav-filter" role="tabpanel" aria-labelledby="nav-filter-tab">
+                            <form class="row g-3">
+                                <div class="track-filter-col filter-container">
+                                    <div class="pb-1"><span class="">Track values</span></div>
+                                    <div class="input-group input-group-sm input-group-phi-eta pb">
+                                        <div
+                                            class="input-group-text first-input-group-text d-flex justify-content-center">
+                                            <span>φ</span>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm first-form-control"
+                                            id="trackPhiFilter" placeholder="">
+                                    </div>
+                                    <div class="input-group input-group-sm input-group-phi-eta">
+                                        <div class="input-group-text d-flex justify-content-center"><span>η</span></div>
+                                        <input type="text" class="form-control form-control-sm" id="trackEtaFilter"
+                                            placeholder="">
+                                    </div>
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-text d-flex justify-content-center"><span>Pt</span>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm" id="trackPTFilter"
+                                            placeholder="">
+                                    </div>
+                                    <div class="input-group input-group-sm">
+                                        <div
+                                            class="input-group-text last-input-group-text d-flex justify-content-center">
+                                            <span>θ</span>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm last-form-control"
+                                            id="trackThetaFilter" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-2 gy-2 track-filter-col filter-container muon-electron-filter">
+                                    <div class="form-check select-particles" id="muoncheck">
+                                        <input class="form-check-input" type="checkbox" value="" id="muon-check">
+                                        <label class="form-check-label" for="muon-check">
+                                            Muons
+                                        </label>
+                                    </div>
+                                    <div class="form-check select-particles" id="electroncheck">
+                                        <input class="form-check-input" type="checkbox" value="" id="electron-check">
+                                        <label class="form-check-label" for="electron-check">
+                                            Electrons
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- <div class="d-grid gap-2 col-10">                  
+                  <a class="btn btn-sm btn-secondary" type="button">RESET</a>
+                  <a class="btn btn-sm btn-primary" type="button">APPLY</a>
+                </div> -->
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="nav-algorithms" role="tabpanel"
+                            aria-labelledby="nav-algorithms-tab">
+                            <form class="row px-1">
+                                <div class="col-12">
+                                    <div class="pb-1"><span class="trc-title">Tracks</span></div>
+                                    <fieldset id="trackAlgos"></fieldset>
+                                </div>
+                            </form>
+                            <!-- <form class="row px-1">
+                                <div class="col-12">
+                                    <div class="pt-2 pb-1 "><span class="trc-title">Jets</span></div>
+                                    <fieldset id="jetAlgos"></fieldset>
+                                </div>
+                            </form> -->
+                            
+                        </div>
+                        <div class="tab-pane show active fade" id="nav-info" role="tabpanel"
+                            aria-labelledby="nav-info-tab">
+                            <li id="event-tree-1-li-default" class="event-tree-1-li event-info">
+                                <a id="event-info" href="#" class="level-2">
+                                    <div class="plus-minus-circle"><i data-feather="minus-circle"></i></div>
+                                    <!-- 
+                     --><span class="not-active event-tree-child event-tree-1-child Eevent eventName"></span>
+                                </a>
+                                <ul class="event-tree event-tracer-tree2">
+                                    <li class="event-tree-2-li event-tree-border-left">
+                                        <a id="" class="event-tree-a eventNumber" href="#">
+                                            <!-- 
+                            --><span class="not-active event-tree-child event-tree-2-child"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="event-tree event-tracer-tree2">
+                                    <li class="event-tree-2-li event-tree-border-left">
+                                        <a id="" class="event-tree-a lumiBlock" href="#">
+                                            <!-- 
+                            --><span class="not-active event-tree-child event-tree-2-child"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="event-tree event-tracer-tree2">
+                                    <li class="event-tree-2-li event-tree-border-left">
+                                        <a id="" class="event-tree-a runNumber" href="#">
+                                            <!-- 
+                            --><span class="not-active event-tree-child event-tree-2-child"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="event-tree event-tracer-tree2">
+                                    <li class="event-tree-2-li event-tree-border-left">
+                                        <a id="" class="event-tree-a Edate" href="#">
+                                            <!-- 
+                            --><span class="not-active event-tree-child event-tree-2-child"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="event-tree event-tracer-tree2">
+                                    <li class="event-tree-2-li last-event-line">
+                                        <a id="" class="event-tree-a Etime" href="#">
+                                            <!-- 
+                            --><span class="not-active event-tree-child event-tree-2-child"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="event-tree-1-li" class="event-tree-1-li first-evt-li tree-events-target event-info">
+                                <a id="event-info" href="#" class="level-2">
+                                    <div class="plus-minus-circle"><i data-feather="minus-circle"></i></div>
+                                    <!-- 
+                     --><span class="not-active event-tree-child event-tree-1-child Eevent eventName"></span>
+                                </a>
+                                <ul class="event-tree event-tracer-tree2">
+                                    <li class="event-tree-2-li event-tree-border-left">
+                                        <a id="" class="event-tree-a eventNumber" href="#">
+                                            <!-- 
+                            --><span class="not-active event-tree-child event-tree-2-child"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="event-tree event-tracer-tree2">
+                                    <li class="event-tree-2-li event-tree-border-left">
+                                        <a id="" class="event-tree-a lumiBlock" href="#">
+                                            <!-- 
+                            --><span class="not-active event-tree-child event-tree-2-child"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="event-tree event-tracer-tree2">
+                                    <li class="event-tree-2-li event-tree-border-left">
+                                        <a id="" class="event-tree-a runNumber" href="#">
+                                            <!-- 
+                            --><span class="not-active event-tree-child event-tree-2-child"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="event-tree event-tracer-tree2">
+                                    <li class="event-tree-2-li event-tree-border-left">
+                                        <a id="" class="event-tree-a Edate" href="#">
+                                            <!-- 
+                            --><span class="not-active event-tree-child event-tree-2-child"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="event-tree event-tracer-tree2">
+                                    <li class="event-tree-2-li last-event-line">
+                                        <a id="" class="event-tree-a Etime" href="#">
+                                            <!-- 
+                            --><span class="not-active event-tree-child event-tree-2-child"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <span class="loaded-events text-center float-end"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- track/jet/clusters/hits/cells informaciis veli -->
+    <div class="track-jet-info col-12 d-flex justify-content-center">
+        <div class="align-items-center track-info-table">
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Object: </div>
+                <div class="track-jet-values" id="track-object-type">Track</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">φ: </div>
+                <div class="track-jet-values" id="track-phi-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">η: </div>
+                <div class="track-jet-values" id="track-eta-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">pT: </div>
+                <div class="track-jet-values" id="track-pt-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">θ: </div>
+                <div class="track-jet-values" id="track-theta-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Charge: </div>
+                <div class="track-jet-values" id="track-charge-val">value</div>
+            </div>
+            <div class="spacer"></div>
+        </div>
+        <div class="multiple-track-list row">
+        </div>
+        <div class="align-items-center jet-info-table">
+            <div class="d-flex">
+                <div class="ps-2 pe-1">Object:</div>
+                <div class="track-jet-values">Jet</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">φ:</div>
+                <div class="track-jet-values" id="jet-phi-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">η:</div>
+                <div class="track-jet-values" id="jet-eta-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Et:</div>
+                <div class="track-jet-values" id="jet-et-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">θ:</div>
+                <div class="track-jet-values" id="jet-theta-val">value</div>
+            </div>
+            <div class="spacer"></div>
+        </div>
+        <div class="align-items-center MET-info-table">
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Object:</div>
+                <div class="track-jet-values">MET</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">ET:</div>
+                <div class="track-jet-values" id="MET-Et-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">&Phi;:</div>
+                <div class="track-jet-values" id="MET-phi-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Ex:</div>
+                <div class="track-jet-values" id="MET-Ex-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Ey:</div>
+                <div class="track-jet-values" id="MET-Ey-val">value</div>
+            </div>
+            <div class="spacer"></div>
+        </div>
+        <div class="align-items-center LAR-info-table">
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Object:</div>
+                <div class="track-jet-values">LAR</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">ET:</div>
+                <div class="track-jet-values" id="LAR-Et-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">&Phi;:</div>
+                <div class="track-jet-values" id="LAR-phi-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">&eta;:</div>
+                <div class="track-jet-values" id="LAR-eta-val">value</div>
+            </div>
+            <div class="spacer"></div>
+        </div>
+        <div class="align-items-center hits-info-table">
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Object:</div>
+                <div class="track-jet-values">Hits</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Parent:</div>
+                <div class="track-jet-values" id="hits-parent-val">value</div>
+            </div>
+            <div class="spacer"></div>
+        </div>
+        <div class="align-items-center cluster-info-table">
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Object:</div>
+                <div class="track-jet-values">Cluster</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">φ:</div>
+                <div class="track-jet-values" id="cluster-phi-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">η:</div>
+                <div class="track-jet-values" id="cluster-eta-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Et:</div>
+                <div class="track-jet-values" id="cluster-et-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">θ:</div>
+                <div class="track-jet-values" id="cluster-theta-val">value</div>
+            </div>
+            <div class="spacer"></div>
+        </div>
+        <div class="align-items-center vertex-info-table">
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Object:</div>
+                <div class="track-jet-values">Vertex</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Primary candidate status:</div>
+                <div class="track-jet-values" id="vertex-primVxCand-val">value</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">numTracks:</div>
+                <div class="track-jet-values" id="vertex-numTracks-val">value</div>
+            </div>
+            <div class="spacer"></div>
+        </div>
+        <div class="align-items-center cell-info-table">
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Object:</div>
+                <div class="track-jet-values">TileCal CELL</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Section:</div>
+                <div class="track-jet-values" id="section">LBA</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Module:</div>
+                <div class="track-jet-values" id="module-number">64</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Name:</div>
+                <div class="track-jet-values" id="cell-name">A1</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">Energy:</div>
+                <div class="track-jet-values" id="eventNumber">-1.890</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">&phi;:</div>
+                <div class="track-jet-values" id="phi">0.000</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">&eta;:</div>
+                <div class="track-jet-values" id="eta">0.000</div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="ps-2 pe-1">r (Sampling):</div>
+                <div class="track-jet-values" id="sampling">0.000</div>
+            </div>
+            <div class="spacer"></div>
+        </div>
+    </div>
+    <!-----S E T T I N G S  M O D A L----->
+    <div id="draggable2" class="settings-menu trc-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 g-0">
+                    <div class="trc-menu-header trc-menu-handle" id="settings-menu-handle">
+                        <div class="trc-menu-title"><span class="align-middle">SETTINGS</span></div>
+                        <button type="button" class="btn-close btn-close-white settings-menu-close-btn"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex flex-column trc-menu-body">
+                <div class="col-12 d-flex justify-content-between settings-scene">
+                    <span class="trc-title">Scene</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-plus hdn">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </div>
+                <div class="settings-scene-body">
+                    <div class="col-12 pb-3 pt-2">
+                        <label class="form-label">Camera mode</label>
+                        <select class="form-select form-select-sm camera-mode">
+                            <option selected>Perspective</option>
+                            <option>Orthographic</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="AmbLightSlider" class="">Brightness:</label><span
+                            class="settings-range-val AmbLight-value clr-value ps-1">60%</span>
+                        <input type="range" class="form-range AmbLightSlider" min="0" max="1" step="0.05" value="0.6"
+                            id="AmbLightSlider">
+                    </div>
+                    <div class="col-12">
+                        <label for="DirLightSlider" class="">Contrast:</label><span
+                            class="settings-range-val DirLight-value clr-value ps-1">45%</span>
+                        <input type="range" class="form-range DirLightSlider" min="0.05" max="1" step="0.05"
+                            value="0.45" id="DirLightSlider">
+                    </div>
+                    <div class="col-12">
+                        <label for="ObjSpeedSlider" class="">Object speed:</label><span
+                            class="settings-range-val ObjSpeed-value clr-value ps-1">0.8</span>
+                        <input type="range" class="form-range ObjSpeedSlider" min="0.1" max="5" step="0.1" value="0.8"
+                            id="ObjSpeedSlider">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="trc-menu-splitter pt-1"></div>
+                </div>
+            </div>
+            <div class="row d-flex flex-column trc-menu-body">
+                <div class="col-12 d-flex justify-content-between settings-advanced">
+                    <span class="trc-title">Advanced</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-minus hdn">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </div>
+                <div class="settings-advanced-body">
+                    <div class="col-12 pt-2">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input show-ground" type="checkbox" id="show-ground">
+                            <label class="form-check-label" for="show-ground">Ground</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input geometry-preload" type="checkbox" name="geometry-preload"
+                                id="geometry-preload">
+                            <label class="form-check-label" for="geometry-preload">
+                                Geometry pre-load
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6 d-flex flex-column">
+                        <button title="Info" type="button" id="uploadSnapAlt"
+                            class="menu-file btn btn-sm btn-primary-outline mt-1 mb-2"
+                            onclick="document.getElementById('uploadSnap').click();"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-upload">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>&nbsp;&nbsp;Open Snap</button>
+                        <input type="file" id="uploadSnap" style="display:none" name="snap">
+                        <button title="Info" type="button" id="downloadSnap"
+                            class="menu-file btn btn-sm btn-primary-outline mb-2"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-save">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                                <polyline points="7 3 7 8 15 8"></polyline>
+                            </svg>&nbsp;&nbsp;Save As Snap</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="trc-menu-splitter pt-1"></div>
+                </div>
+            </div>
+            <div class="row d-flex flex-column trc-menu-body pb-3">
+                <div class="col-12 settings-ui d-flex justify-content-between">
+                    <span class="trc-title">User interface</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-minus hdn">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </div>
+                <div class="settings-ui-body">
+                    <div class="col-12 pt-2">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input show-axis" type="checkbox" id="show-axis" checked>
+                            <label class="form-check-label" for="show-axis">Axis</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input show-stats" type="checkbox" name="show-stats" id="show-stats"
+                                checked>
+                            <label class="form-check-label" for="show-stats">Stats</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12 d-flex flex-row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="fontFamily" id="roboto" checked>
+                            <label class="form-check-label" for="roboto">
+                                Font: 'Roboto'
+                            </label>
+                        </div>
+                        <div class="form-check ms-2">
+                            <input class="form-check-input" type="radio" name="fontFamily" id="jura">
+                            <label class="form-check-label" for="jura">
+                                Font: 'Jura'
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex flex-row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tracerTheme" id="darkMode" checked
+                                disabled>
+                            <label class="form-check-label" for="darkMode">
+                                Dark mode
+                            </label>
+                        </div>
+                        <div class="form-check ms-2">
+                            <input class="form-check-input" type="radio" name="tracerTheme" id="lightMode" disabled>
+                            <label class="form-check-label" for="lightMode">
+                                Light mode
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-----G E O M E T R Y  S I D E B A R (T R E E)----->
+    <div class="tracer-sidebar float-start" id="draggable1">
+        <div id="geometry-menu-handle" class="trc-menu-handle"></div>
+                
+        <ul class="tree tracer-tree">
+            <!-- Main Components -->
+            <li class="tree-parent-li">
+                <a  href="#" class="level-1">
+                    <div class="plus-minus-circle"><i data-feather="minus-circle"></i></div>
+                    <!-- 
+                --><span id="atlas-detector" class="child-is-active tree-parent">ATLAS DETECTOR</span>
+                </a>
+                <!-- Magnet Systems -->
+                <ul class="tree tracer-tree1 parentName">
+                    <li class="tree-1-li tree-border-left">
+                        <a href="#">
+                            <span id="MagnetSystems" class="not-active tree-child tree-1-child ">Magnet Systems</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Inner Detector -->
+                <ul class="tree tracer-tree1 parentName">
+                    <li class="tree-1-li tree-border-left">
+                        <a href="#">
+                            <div class="plus-minus-circle"><i data-feather="minus-circle"></i></div>
+                            <span id="InnerDetector" class="child-is-active tree-child tree-1-child inner-detector">Inner Detector</span>
+                        </a>
+                        <ul class="inner-detector-tree2 tree tracer-tree2">
+                            <li class="tree-2-li tree-border-left">
+                                <a href="#">
+                                    <span id="Pixel" class="not-active tree-child tree-2-child available-g pixel-g" name="Pixel" path="Pixel.json">Pixel</span>
+                                </a>
+                            </li>
+                            <li class="tree-2-li tree-border-left">
+                                <a href="#">
+                                    <span id="SCT" class="not-active tree-child def-scene-g tree-2-child sct-g">SCT</span>
+                                </a>
+                            </li>
+                            <li class="tree-2-li">
+                                <a href="#" class="last-geometry-line">
+                                    <span id="TRT" class="not-active tree-child tree-2-child trt-g">TRT</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Calorimetry -->
+                <ul class="tree tracer-tree1 parentName">
+                    <li class="tree-1-li tree-border-left">
+                        <a href="#">
+                            <div class="plus-minus-circle"><i data-feather="minus-circle"></i></div>
+                            <span id="Calorimetry" class="child-is-active tree-child tree-1-child">Calorimetry</span>
+                        </a>
+                        <ul class="tree tracer-tree2">
+                            <!-- Lar -->
+                            <li class="tree-2-li tree-border-left">
+                                <a href="#">
+                                    <span id="LAR" class="not-active tree-child tree-2-child ">Lar</span>
+                                </a>
+                            </li>
+                            <!-- Tile -->
+                            <li class="tree-2-li">
+                                <a href="#" class="last-geometry-line">
+                                    <span id="TILE" class="not-active tree-child tree-2-child ">Tile</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Muon Spectrometer -->
+                <ul class="tree tracer-tree1 parentName">
+                    <li class="tree-1-li tree-border-left">
+                        <a href="#">
+                            <div class="plus-minus-circle"><i data-feather="minus-circle"></i></div>
+                            <span id="MuonSpectrometer" class="not-active tree-child tree-1-child ">Muon Spectrometer</span>
+                        </a>
+                        <ul class="tracer-tree2">
+                            <li class="tree-2-li tree-border-left">
+                                <a href="#">
+                                    <span id="MuonBarrel" class="not-active tree-child tree-2-child">Barrel</span>
+                                </a>
+                            </li>
+                            <li class="tree-2-li">
+                                <a href="#" class="last-geometry-line">
+                                    <span id="MuonEndcap" class="not-active tree-child tree-2-child">Endcap</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="no-child tree tracer-tree1 parentName">
+                    <li class="tree-1-li">
+                        <a  class="tree-a last-geometry-line" href="#">
+                            <span id="Beam" class="not-active tree-child tree-1-child def-scene-g available-g " path="Beam.json">Beam Pipe</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- maserclasses table -->
+    <!-- <div class="evd-mc-table container trc-menu-header trc-menu-handle ui-draggable-handle" id="draggable5">
+     <input type="radio" name="optradio">
+  </div> -->
+    <form style="display: none;"  id="ww_form">
+        <input type="text" name="group_name" id="group_name">
+        <input type="number" name="positron" id="positron" value="0">
+        <input type="number" name="electron" id="electron" value="0">
+        <input type="number" name="muon" id="muon" value="0">
+        <input type="number" name="antimuon" id="antimuon" value="0">
+        <input type="number" name="background" id="background" value="0">
+        <input type="number" name="ww" id="ww" value="0">
+        <input type="text" name="ww_angle" id="ww_angle" value="">
+        <input type="hidden" name="sessionID" id="sessionID">
+    </form>
+    <div id="draggable5" class="trc-menu mc-table-main-div">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 g-0">
+                    <div class="trc-menu-handle" id="evd-mc-handle">
+                        <div class="trc-menu-title"><span class="align-middle" id="mc-table-header"></span></div>
+                        <!-- <button type="button" class="btn-close btn-close-white about-menu-close-btn"></button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="align-items-center mc-scroll-div">
+
+
+                <table class='mc-table' id="mc-table-W">
+
+                    <tr>
+                        <th>Event</th>
+                        <th name="positron">e+</th>
+                        <th name="electron">e-</th>
+                        <th name="muon">&#181;+</th>
+                        <th name="antimuon">&#181;-</th>
+                        <th name="background">Background</th>
+                        <th name="ww">WW</th>
+                        <th>Angle</th>
+                        <th></th>
+                    </tr>
+                    <tbody id='W-table-rows-body'>
+                    </tbody>
+
+                </table>
+                <table class='mc-table' id="mc-table-Z">
+                    <tr>
+                        <th>Event</th>
+                        <th>e+e-</th>
+                        <th>m+m-</th>
+                        <th>ZZ</th>
+                        <th>Background</th>
+                        <th></th>
+                    </tr>
+                    <tbody id='Z-table-rows-body'>
+                    </tbody>
+                </table>
+            </div>
+            <div id="mc-table-buttons-div">
+                <!-- <button onclick="submitResult()" type="submit" form="ww_form" id="mc-table-submit-button">Submit
+                    result</button> -->
+                <button type="submit" id="mc-table-next-button" class="button-39">Next</button>
+            </div>
+        </div>
+    </div>
+    <!-- evd masterclasses info -->
+    <div class="masterclass-info-div">
+        <div id="mc-group-name">Group : </div>
+        <div id="mc-city-name">City : </div>
+        <div id="mc-date">Date : </div>
+        <!-- <div id="mc-masterclass-problem">Masterclass Problem :</div> -->
+    </div>
+    <!-- Clipping-stvis gankutvnili slideri -->
+    <div class="geometry-cut-slider-outer">
+        <div id="geometry-cut-slider" class="geometry-cut-margin justify-content-center align-items-center hidden">
+            <form class="opacity-form" id="geometry-cut-slider-range">
+                <input type="range" min="-3.14159265" max="3.14159265" step="0.0001" value="-3.14159265"
+                    class="form-control-range align-middle" id="clipping-slider" draggable="false" autocomplete="off"
+                    ondragstart="dragStart(e)">
+            </form>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div id="loading-wrapper">
+        <div id="loading-text">0%</div>
+        <div id="loading-content"></div>
+    </div>
+    `<!--  Tracer Logo -->
+    <div class='tracer-logo'></div>
+    <!--  S T A T S -->
+    <div class="trc-stats ">
+        <span class="stats_fps" id="fps"></span>
+        <span class="stats_triangles ps-2"></span>
+    </div>
+
+    <!-- mtavari scena -->
+    <div id="mainScene" class="coreContainer"></div>
+    <!-- axisis scena -->
+    <div id="axisScene" class="axisContainer"></div>
+    <!-- freeflys mimartulebis machvenebeeli -->
+    <div id="trinScene" class="triangleContainer"></div>
+    <!-- freeFlys sichkaris indikatori -->
+    <div id="sIndicator" class="arrowSpeedIndicator yel"></div>
+    <!-- freeFlys informaciis grafa -->
+    <div id="infoGraph" class="info">
+        <li class="yel">W - Increase speed
+            <br>
+        <li class="yel"> S - Decrease speed
+            <br>
+        <li class="yel">Space - Stop
+            <br>
+        <li class="yel">Esc - Exit
+    </div>
+    <div id="overlay"></div>
+    <div id="eventIdWarning">
+        <span>No session found, please return to the Home page and try again</span>
+        <a href="https://tracer-mc.up.railway.app/">Go to home page!</a>
+    </div>
+    <script>
+    feather.replace();
+    let setFormValues;
+
+    function submitResult() {
+        setFormValues();
+        //   $.ajax({url:"create-table.php", success:function(result){
+        //     console.log("successfuly added result");
+        //     console.log(result);
+        //     }
+        //   })
+    }
+    </script>
+</body>
+
+</html>

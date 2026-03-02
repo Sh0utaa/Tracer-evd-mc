@@ -1,0 +1,226 @@
+/* .masterclass-info-div {
+  position: absolute;
+  right: 4vw;
+  color: burlywood;
+  font-size: 1vw;
+  font-family: "Courier New", Courier, monospace;
+  bottom: 5vh;
+}
+@media (max-width: 500px) {
+  .masterclass-info-div {
+    font-size: 2vw;
+  }
+}
+.trc-mc-path {
+  font-style: italic;
+  font-size: 12px;
+} */
+/* table  */
+
+/* polyline {
+  transition: all 250ms ease-in-out;
+}
+.mc-table-main-div {
+  z-index: 1003;
+  position: fixed;
+  top: 25%;
+  right: 5%;
+  width: 28vw;
+  background-color: var(--trc-bg);
+  background-clip: padding-box;
+  box-shadow: 0 0rem 0.35rem var(--trc-box-shoadow);
+  border-radius: 0.25rem;
+  scrollbar-width: thin;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.mc-table {
+  width: 100%;
+  text-align: center;
+}
+.mc-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--trc-bg);
+  padding: 3% 0;
+}
+#mc-table-next-button {
+  margin: 1vw 2vw;
+  float: right;
+  right: 5px;
+}
+#mc-table-W,
+#mc-table-Z {
+  display: none;
+}
+.mc-edit-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  display: none;
+}
+#mc-table-buttons-div {
+  width: 100%;
+  height: 100%;
+}
+#mc-table-submit-button {
+  margin: 1vw;
+}
+.mc-scroll-div {
+  display: block;
+  overflow: auto;
+  max-height: 170px;
+}
+#evd-mc-handle {
+  border-bottom: 1px solid var(--trc-border);
+  padding: 1rem 0.75rem;
+}
+.table-angle {
+  width: 35px;
+}
+.tracer-logo {
+  background-image: url("/css/images/Tracer-Logo2022.png");
+  width: 82px;
+  height: 53px;
+  background-position: center;
+  background-size: cover;
+  margin: 15px;
+  position: absolute;
+  left: 2px;
+  bottom: 1px;
+} */
+.masterclass-info-div {
+  /* background-color: aqua; */
+  position: absolute;
+  right: 4vw;
+  color: burlywood;
+  font-size: 1vw;
+  font-family: 'Courier New', Courier, monospace;
+  bottom: 5vh;
+}
+@media (max-width: 500px) {
+  .masterclass-info-div {
+    font-size: 2vw;
+  }
+}
+.trc-mc-path {
+  font-style: italic;
+  font-size: 12px;
+}
+/* table  */
+
+polyline {
+  transition: all 250ms ease-in-out;
+}
+.mc-table-main-div {
+  z-index: 1003;
+  position: fixed;
+  top: 25%;
+  right: 5%;
+  width: 28vw;
+  background-color: var(--trc-bg);
+  background-clip: padding-box;
+  box-shadow: 0 0rem 0.35rem var(--trc-box-shoadow);
+  border-radius: 0.25rem;
+  scrollbar-width: thin;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.mc-table {
+  width: 100%;
+  text-align: center;
+  /* max-height: 10px;
+   overflow: auto;  */
+}
+.mc-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--trc-bg);
+  padding: 3% 0;
+}
+#mc-table-next-button {
+  margin: 2vw 1vw 1vw 0vw;
+  float: right;
+  right: 5px;
+}
+#mc-table-W,
+#mc-table-Z {
+  display: none;
+}
+.mc-edit-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  display: none;
+}
+#mc-table-buttons-div {
+  width: 100%;
+  height: 100%;
+}
+
+.mc-scroll-div {
+  display: block;
+  overflow: auto;
+  max-height: 170px;
+}
+#evd-mc-handle {
+  border-bottom: 1px solid var(--trc-border);
+  padding: 1rem 0.75rem;
+}
+.table-angle {
+  width: 35px;
+}
+.tracer-logo {
+  /* background-image: url("../img/Tracer-Logo2022.png"); */
+  width: 82px;
+  height: 53px;
+  background-position: center;
+  background-size: cover;
+  margin: 15px;
+  position: absolute;
+  left: 2px;
+  bottom: 1px;
+}
+
+
+
+/* CSS */
+.button-39 {
+  background-color: #FFFFFF;
+  border: 1px solid rgb(209,213,219);
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: .775rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .25rem 0.8rem;
+  text-align: center;
+  text-decoration: none #D1D5DB solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-39:hover {
+  background-color: rgba(249, 250, 251, 0.947);
+}
+
+.button-39:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.button-39:focus-visible {
+  box-shadow: none;
+}

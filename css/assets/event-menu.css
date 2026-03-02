@@ -1,0 +1,256 @@
+/*
+//////////////////////////////////////////////////////////////////////////////////
+///   Nuclear Engineering Center at Georgian Technical University
+///   TRACER Framework
+///////////////////////////////////////////////////////   Creation History
+///   Name:     event-menu.css
+///   Subsystems: EVD, CORE
+///   Path: \tracer\subsystem\evd\r3.0\css\assets\event-menu.css
+///   Description: Failshi agwerilia event menius stili
+///   Classes:
+        event-menu
+        event-menu-top
+        
+///   Author: <Nikoloz Udzilauri, Nino Zurashvili>                    
+///   Date: <თებერვალი 2021>
+///////////////////////////////////////////////////////   Change History
+///   Name: <პროგრამისტის სახელი>          
+///   Date:  <მოდიფიკაციის თარიღი>      
+///   Description: <მოდიფიკაციის აღწერა>
+//////////////////////////////////////////////////////////////////////////////////
+*/
+
+.event-menu {
+  display: none;
+  z-index: 1003;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: calc(100vh - 120px);
+  width: auto;
+  min-width: 269px;
+  background-color: var(--trc-bg);
+  background-clip: padding-box;
+  box-shadow: 0 0 5px var(--trc-box-shoadow);
+  border-radius: 0.25rem;
+  scrollbar-width: thin;
+  overflow: auto;
+  user-select: none;
+}
+#event-tree-1-li-default {
+  display: none;
+}
+.event-tree-1-li {
+  list-style: none;
+  padding: 0;
+}
+ul.event-tracer-tree2 {
+  padding: 0 0 0 8px;
+  margin: 0;
+  margin-top: -3px;
+  list-style: none;
+}
+ul.event-tracer-tree2 .event-tree-border-left {
+  border-left: 1px solid var(--trc-text-primary);
+}
+.last-event-line {
+  border-left: 1px solid var(--trc-text-primary);
+  border-image: linear-gradient(
+    to bottom,
+    var(--trc-text-primary) 0%,
+    var(--trc-text-primary) 53%,
+    rgba(108, 219, 141, 0) 53%
+  );
+  border-image-slice: 1;
+}
+ul.event-tracer-tree2 li {
+  border-width: 0px;
+  border-left: 1px solid var(--trc-text-primary);
+}
+.event-tree-1-li ul {
+  display: none;
+}
+.tree-events-target:last-of-type ul {
+  display: block;
+}
+.activeEventParamDiv {
+  color: var(--trc-text-active);
+}
+.event-tree-1-li a {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* text-transform: uppercase; */
+  padding: 1px 0;
+  -webkit-user-drag: none;
+  text-align: left !important;
+}
+ul.event-tracer-tree2 li a {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* text-transform: uppercase; */
+  padding: 1px 0;
+  -webkit-user-drag: none;
+  text-align: left !important;
+}
+.event-tree-1-li a .plus-minus-circle {
+  margin-right: 3px;
+  display: inline-block;
+  margin-left: -1px;
+}
+ul.event-tracer-tree2 li a:before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 0;
+  position: relative;
+  left: 0em;
+  vertical-align: middle;
+  border-top: 1px solid var(--trc-text-primary);
+}
+.event-menu-top button {
+  color: var(--trc-text-primary);
+  padding: 0.25rem;
+  font-size: var(--trc-font-size);
+}
+.event-menu-top button:hover,
+.event-menu-top button.active {
+  color: var(--trc-primary);
+}
+.event-menu-top .selected-event {
+  color: var(--trc-text-active);
+}
+.event-menu-top .selected-event:hover {
+  color: var(--trc-text-active);
+}
+/* .event-menu-top button:not(:first-child){
+    margin-left: -1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.event-menu-top button:not(:last-child){
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+} */
+.event-menu-top :first-child {
+  margin-left: 0;
+}
+.event-menu-top :last-child {
+  margin-right: 0;
+}
+.event-menu-load {
+  display: flex;
+  display: none;
+  box-shadow: inset 0 0rem 5rem var(--trc-box-shoadow);
+  padding-bottom: 0.7rem;
+}
+.col-12.event-menu-bottom {
+  padding-bottom: 0.3rem;
+}
+.event-menu .btn:focus {
+  box-shadow: none;
+}
+.event-menu .form-select-sm {
+  font-size: 0.75rem;
+  border-radius: 2px;
+}
+.btn-group-sm > .btn,
+.btn-sm {
+  font-size: 0.75rem;
+  border-radius: 2px;
+}
+
+.event-menu-middle {
+  text-transform: uppercase;
+}
+.event-menu-middle .form-check-label {
+  cursor: pointer;
+}
+
+.event-menu a {
+  text-align: center;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+/*Nav Tabs*/
+.nav-tabs {
+  border-bottom: 1px solid var(--trc-text-primary);
+}
+.event-menu .nav-link {
+  height: 30px;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+.event-menu .nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: var(--trc-bg);
+  border-color: var(--trc-text-primary);
+}
+div#nav-info {
+  padding-top: 3px;
+  padding-left: 3px;
+}
+/*Filter Tab*/
+.event-menu .input-group-sm input:focus {
+  outline: none;
+  box-shadow: none;
+}
+.event-menu .form-control,
+.event-menu .input-group-text {
+  color: var(--trc-text-active);
+  background-color: var(--trc-bg);
+  border: 1px solid var(--trc-text-primary);
+  font-size: var(--trc-tree-font-size);
+  width: 2rem;
+  margin-bottom: -1px;
+  border-radius: 0;
+  padding: 0.1rem 0.25rem;
+}
+.event-menu .form-control-sm {
+  min-height: 25px;
+  /* border-color: var(--trc-text-active); */
+}
+.event-menu .input-group-text {
+  color: var(--trc-text-primary);
+  /* border: 1px solid; */
+}
+.event-menu .form-control:focus {
+  background-color: var(--trc-bg);
+}
+.filter-container .input-group-sm .first-input-group-text {
+  border-top-left-radius: 2px;
+}
+.filter-container .input-group-sm .first-form-control {
+  border-top-right-radius: 2px;
+}
+.filter-container .input-group-sm .last-input-group-text {
+  border-bottom-left-radius: 2px;
+}
+.filter-container .input-group-sm .last-form-control {
+  border-bottom-right-radius: 2px;
+}
+.track-filter-col {
+  width: 50%;
+  margin: 5% auto;
+}
+.muon-electron-filter {
+  margin-top: 12% !important;
+}
+/*Algorithms tab*/
+#nav-algorithms .form-check,
+#nav-filter .form-check {
+  margin-bottom: 0px;
+  min-height: 1rem;
+}
+.muon-segment-check-div {
+  width: -webkit-fill-available;
+}
