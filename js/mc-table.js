@@ -200,7 +200,7 @@ $("#ww_form").submit(function (event) {
 
   addResultToDB(reqBody).then(data => {
     console.log(data);
-    window.location.replace("https://tracer-mc.up.railway.app/results/" + localStorage.getItem("sessionID"));
+    window.location.replace("https://tracer-mc.web.cern.ch/results/" + localStorage.getItem("sessionID"));
   });
 
   

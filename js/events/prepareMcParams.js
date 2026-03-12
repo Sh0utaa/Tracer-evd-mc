@@ -1,6 +1,6 @@
 async function fetchData(id) {
   // const url = `http://localhost:3000/api/mc-table?id=${id}`;
-  const url = `https://tracer-mc.up.railway.app/api/mc-table?id=${id}`;
+  const url = `https://tracer-mc.web.cern.ch.app/api/mc-table?id=${id}`;
 
 
   try {
@@ -75,7 +75,8 @@ function initialize(){
 
 
   async function loadXML(group, index) {
-    const url = `https://tracer-mc.up.railway.app/masterclass-xml/${group}/?index=${index}`;
+    // XML provider
+    const url = `https://tracer-xml-provider.web.cern.ch/masterclass-xml/${group}/?index=${index}`;
     // const url = `http://localhost:8081/masterclass-xml/${group}/?index=${index}`;
     try {
       const response = await fetch(url);
@@ -100,7 +101,7 @@ function initialize(){
 
 
   async function addResultToDB(reqBody){
-    const url = `https://tracer-mc.up.railway.app/api/mc-table`;
+    const url = `https://tracer-mc.web.cern.ch/api/mc-table`;
     // const url = `http://localhost:3000/api/mc-table`;
     try {
       const response = await fetch(url, {
