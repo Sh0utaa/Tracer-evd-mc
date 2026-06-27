@@ -1,6 +1,6 @@
 async function fetchData(id) {
   // const url = `http://localhost:3000/api/mc-table?id=${id}`;
-  const url = `https://tracer-mc.web.cern.ch.app/api/mc-table?id=${id}`;
+  const url = `https://tracer-mc.web.cern.ch/api/mc-table?id=${id}`;
 
 
   try {
